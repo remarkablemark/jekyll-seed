@@ -1,0 +1,29 @@
+title:
+description:
+email:
+url:
+google_analytics:
+disqus:
+avatar:
+usernames:
+    dribbble:
+    email:
+    facebook:
+    flickr:
+    github:
+    instagram:
+    linkedin:
+    pinterest:
+    twitter:
+    stackoverflow:
+    youtube:
+
+markdown: kramdown
+highlighter: pygments
+sass:
+    style: :compressed
+exclude:
+    - Gemfile
+    - Gemfile.lock
+    - LICENSE
+    - README.md
