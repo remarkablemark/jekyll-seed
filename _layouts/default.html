@@ -4,21 +4,43 @@
 <!--[if IE 8]>        <html class="no-js lt-ie9"><![endif]-->
 <!--[if gt IE 8]><!--><html class="no-js"><!--<![endif]-->
 
-    {% include head.html %}
-
+    <head>
+        {% include head.html %}
+    </head>
+    
     <body>
 
-        {% include header.html %}
+        <div class="table">
 
-        <div class="page-content">
-            <div class="wrapper">
-                {{ content }}
+            <div class="table-row">
+                <header class="site-header">
+                    <div class="grid-container">
+                        <div class="row">
+                            {% include header.html %}
+                        </div>
+                    </div>
+                </header>
             </div>
+
+            <div class="site-content table-row expand">
+                <div class="grid-container">
+                    <div class="row">
+                        {{ content }}
+                    </div>
+                </div>
+            </div>
+
+            <footer class="site-footer table-row">
+                <div class="grid-container">
+                    <div class="row">
+                        {% include footer.html %}
+                    </div>
+                </div>
+            </div>
+
         </div>
 
-        {% include footer.html %}
-
-        {% include google-analytics.html %}
+        {% include embed/google-analytics.html %}
 
     </body>
 

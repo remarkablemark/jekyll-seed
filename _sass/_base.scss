@@ -11,8 +11,27 @@ dl, dd, ol, ul, figure {
 
 
 /**
+ * Box sizing
+ */
+html {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+*, *:before, *:after {
+    -webkit-box-sizing: inherit;
+    -moz-box-sizing: inherit;
+    box-sizing: inherit;
+}
+
+
+
+/**
  * Basic styling
  */
+html, body {
+    height: 100%;
+}
 body {
     font-family: $base-font-family;
     font-size: $base-font-size;
@@ -151,32 +170,11 @@ pre {
 
 
 /**
- * Wrapper
- */
-.wrapper {
-    max-width: -webkit-calc(#{$content-width} - (#{$spacing-unit} * 2));
-    max-width:         calc(#{$content-width} - (#{$spacing-unit} * 2));
-    margin-right: auto;
-    margin-left: auto;
-    padding-right: $spacing-unit;
-    padding-left: $spacing-unit;
-    @extend %clearfix;
-
-    @include media-query($on-laptop) {
-        max-width: -webkit-calc(#{$content-width} - (#{$spacing-unit}));
-        max-width:         calc(#{$content-width} - (#{$spacing-unit}));
-        padding-right: $spacing-unit / 2;
-        padding-left: $spacing-unit / 2;
-    }
-}
-
-
-
-/**
  * Clearfix
  */
 %clearfix {
 
+    &:before,
     &:after {
         content: "";
         display: table;
@@ -187,18 +185,114 @@ pre {
 
 
 /**
+ * Grid container
+ */
+.grid-container {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: $content-width - ($spacing-unit * 2);
+    width: 100%;
+}
+
+
+
+/**
+ * Row
+ */
+.row {
+    padding-right: $spacing-unit;
+    padding-left: $spacing-unit;
+    @extend %clearfix;
+}
+
+
+
+/**
+ * Columns
+ */
+.columns {
+    width: 100%;
+    min-height: 1px;
+
+    @include media-query($medium-up) {
+        float: left;
+
+        &.one {
+            width: 100% / 12 * 1;
+        }
+
+        &.two {
+            width: 100% / 12 * 2;
+        }
+
+        &.three {
+            width: 100% / 12 * 3;
+        }
+
+        &.four {
+            width: 100% / 12 * 4;
+        }
+
+        &.five {
+            width: 100% / 12 * 5;
+        }
+
+        &.six {
+            width: 100% / 12 * 6;
+        }
+
+        &.seven {
+            width: 100% / 12 * 7;
+        }
+
+        &.eight {
+            width: 100% / 12 * 8;
+        }
+
+        &.nine {
+            width: 100% / 12 * 9;
+        }
+
+        &.ten {
+            width: 100% / 12 * 10;
+        }
+
+        &.eleven {
+            width: 100% / 12 * 11;
+        }
+
+        &.twelve {
+            width: 100% / 12 * 12;
+        }
+    }
+}
+
+
+
+/**
  * Icons
  */
 .icon {
+    color: $grey-color;
+}
 
-    > svg {
-        display: inline-block;
-        width: 16px;
-        height: 16px;
-        vertical-align: middle;
 
-        path {
-            fill: $grey-color;
-        }
-    }
+
+/**
+ * Table display
+ */
+.table {
+    border-collapse: collapse;
+    display: table;
+    height: 100%;
+    width: 100%;
+}
+
+.table-row {
+    display: table-row;
+    height: 1px;
+}
+
+.table-row.expand {
+    height: auto;
 }
