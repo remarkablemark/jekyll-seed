@@ -291,8 +291,8 @@ pre {
 .table-row {
     display: table-row;
     height: 1px;
-}
 
-.table-row.expand {
-    height: auto;
+    &.expand {
+        height: auto;
+    }
 }
